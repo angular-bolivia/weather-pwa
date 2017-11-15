@@ -1,16 +1,25 @@
-<md-toolbar color="primary">
-  <button md-icon-button>
-    <md-icon>menu</md-icon>
-  </button>
-  <span>
-    Weather App
-  </span>
-</md-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over">
+    <mat-nav-list>
 
-<nav>
-  <a>
-    <button md-button color="primary" [routerLink]="'/'">Home</button>
-  </a>
-</nav>
+      <mat-list-item>
+        <mat-icon matListIcon>home</mat-icon>
+        <a matLine routerLink="/" (click)="sidenav.close()">Home</a>
+      </mat-list-item>
 
-<router-outlet></router-outlet>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="wa-content">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Weather App</span>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</mat-sidenav-container>
